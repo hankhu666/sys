@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#remove
+
+kill `ps -ef|grep syszcx|sed -n '1p'|awk '{print ($2)}'`
+rm -rf /usr/local/sys/  /etc/init.d/susys
+sed -i '/assys/d' /var/spool/cron/root

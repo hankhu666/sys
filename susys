@@ -1,0 +1,8 @@
+#!/bin/bash
+##
+#susys      Autoactive the assys 
+#
+# chkconfig: 2345 90 10
+# description: Activates/Deactivates bssys configured to start at boot time.
+nohup bash /usr/local/sys/assys  &>/dev/null &
+#
