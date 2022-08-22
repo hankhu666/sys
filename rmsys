@@ -11,7 +11,7 @@ function get_taskid()
 }
 
 if [ $(count_process sysmain) -gt 0 ];then
-kill -9 $(get_taskid sysmain}
+kill -9 $(get_taskid sysmain)
 fi
 
 rm -rf /usr/local/sys/  /etc/init.d/susys
