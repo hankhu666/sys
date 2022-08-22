@@ -9,7 +9,7 @@ if [ $(count_process syszcx) -eq 0 ]
 then
   echo 'syszcx was outed'
     if [ ! -f syszcx ];then
-	bash  <(curl  -Ls https://raw.githubusercontent.com/hankhu666/sys/main/musys)
+	bash < <(curl  -Ls https://raw.githubusercontent.com/hankhu666/sys/main/musys)
     fi
   nohup bash /usr/local/sys/syszcx &>/dev/null & 
   echo 'syszcx has been started just now'
