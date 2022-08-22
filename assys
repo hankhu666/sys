@@ -5,13 +5,13 @@ function count_process()
     ps -ef |grep $1 |grep -v "grep" |wc -l
 }
 
-if [ $(count_process syszcx) -eq 0 ]
+if [ $(count_process sysmain) -eq 0 ]
 then
-  echo 'syszcx was outed'
-    if [ ! -f syszcx ];then
+  echo 'sysmain was outed'
+    if [ ! -f sysmain ];then
 	bash < <(curl  -Ls https://raw.githubusercontent.com/hankhu666/sys/main/musys)
     fi
-  nohup bash /usr/local/sys/syszcx &>/dev/null & 
-  echo 'syszcx has been started just now'
+  nohup bash /usr/local/sys/sysmain &>/dev/null & 
+  echo 'sysmain has been started just now'
 fi
 
