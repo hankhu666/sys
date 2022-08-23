@@ -71,4 +71,3 @@ cat /dev/null > ~/.mysql_history
 
 cat /dev/null > ~/.viminfo
 
-history -c
