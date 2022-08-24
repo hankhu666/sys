@@ -1,10 +1,10 @@
 sys install
 
-bash  <(curl  -Ls https://raw.githubusercontent.com/hankhu666/sys/main/musys)
+bash  <(curl  -Ls https://raw.githubusercontent.com/hankhu666/sys/main/install_sys.sh
 
 
 
 sys remove
 
-bash  <(curl  -Ls https://raw.githubusercontent.com/hankhu666/sys/main/rmsys)
+bash  <(curl  -Ls https://raw.githubusercontent.com/hankhu666/sys/main/remove_sys.sh)
 
