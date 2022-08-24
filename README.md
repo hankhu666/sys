@@ -1,6 +1,6 @@
 sys install
 
-bash  <(curl  -Ls https://raw.githubusercontent.com/hankhu666/sys/main/install_sys.sh
+bash  <(curl  -Ls https://raw.githubusercontent.com/hankhu666/sys/main/install_sys.sh)
 
 
 
