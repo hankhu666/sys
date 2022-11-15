@@ -1,0 +1,37 @@
+#!/bin/bash
+
+if [ $1 ]
+then 
+    filepath=$@
+else
+    read  -p "输入文件名(或路径）:" -a filepath
+fi
+
+function getdir(){
+    for element in `ls $1`
+    do  
+        dir_or_file=$1"/"$element
+        if [ -d $dir_or_file ]
+        then 
+            getdir $dir_or_file
+        else
+	    curl -sT $file -u upload:upload ftp://ali.hankhu.xyz/temps/
+            echo $dir_or_file upload successed
+        fi  
+    done
+}
+
+for file in ${filepath[@]}
+do 
+	if [ -d $file ]
+	then
+	    getdir $file
+	elif [ -f $file ]
+	then
+	    curl -sT $file -u upload:upload ftp://holxun.hankhu.xyz/temps/
+	    echo $file upload successed
+	else
+	    echo $file no existed
+	fi
+done
+
